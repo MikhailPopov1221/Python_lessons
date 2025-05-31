@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #131526, #3a3b5c);
+            font-family: Arial, sans-serif;
+        }
+
+        p {
+            margin-top: 20px;
+            font-family: "Press Start 2P", serif;
+            font-weight: 400;
+            font-size: 10px;
+            font-style: normal;
+            color: rgb(221, 211, 211);
+            text-align: center;
+        }
+
+        .calculator {
+            background: #333;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 320px;
+            height: 430px;
+        }
+
+        .history {
+            margin-left: 20px;
+            background: #333;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            height: 430px;
+        }
+
+        #display {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 20px;
+            background: #1c1c1c;
+            border: none;
+            border-radius: 10px;
+            font-size: 24px;
+            color: #fff;
+            text-align: right;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        #h-display {
+            width: 100%;
+            height: 400px;
+            background: #1c1c1c;
+            border: none;
+            border-radius: 10px;
+            font-size: 24px;
+            color: #fff;
+            text-align: right;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .buttons {
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.7;
+        }
+
+        .number {
+
+            background: linear-gradient(0deg, #4a4a4a, #8a8a8a);
+            color: white;
+        }
+
+        .operator {
+            background: linear-gradient(0deg, #b26a04, #f09a22);
+            color: white;
+        }
+
+        .equals {
+            background: linear-gradient(0deg, #117d21, #36e450);
+            color: white;
+        }
+
+        .clear {
+            background: linear-gradient(0deg, #a91d15, #e84940);
+            color: white;
+            grid-column: span 2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+            <button class="clear" onclick="clearDisplay()">C</button>
+            <button class="operator" onclick="appendToDisplay(' / ')">/</button>
+            <button class="operator" onclick="appendToDisplay(' * ')">×</button>
+            <button class="number" onclick="appendToDisplay('7')">7</button>
+            <button class="number" onclick="appendToDisplay('8')">8</button>
+            <button class="number" onclick="appendToDisplay('9')">9</button>
+            <button class="operator" onclick="appendToDisplay(' - ')">-</button>
+            <button class="number" onclick="appendToDisplay('4')">4</button>
+            <button class="number" onclick="appendToDisplay('5')">5</button>
+            <button class="number" onclick="appendToDisplay('6')">6</button>
+            <button class="operator" onclick="appendToDisplay(' + ')">+</button>
+            <button class="number" onclick="appendToDisplay('1')">1</button>
+            <button class="number" onclick="appendToDisplay('2')">2</button>
+            <button class="number" onclick="appendToDisplay('3')">3</button>
+            <button class="equals" onclick="calculate()" style="grid-row: span 2">=</button>
+            <button class="number" onclick="appendToDisplay('0')" style="grid-column: span 2">0</button>
+            <button class="number" onclick="appendToDisplay('.')">.</button>
+        </div>
+        <p> Top Academy Calc ver 1.0</p>
+    </div>
+
+    <div class="history">
+        <div id="h-display">
+        </div>
+        <p> History</p>
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+        let history = document.getElementById('h-display');
+        let history_list = [];
+
+
+        // Добавление символов на табло
+        function appendToDisplay(value) {
+            display.value += value;
+        }
+
+        // Очистка табло
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        // Вычисление результата
+        function calculate() {
+            let input_str = display.value.split(" ");
+
+            let first_number = parseInt(input_str[0]);
+            let operator = input_str[1];
+            let second_number = parseInt(input_str[2]);
+
+            console.log(first_number);
+            console.log(second_number);
+
+            let result = '';
+
+            switch (operator) {
+                case "-":
+                    result = first_number - second_number;
+                    break;
+                case "+":
+                    result = first_number + second_number;
+                    break;
+                case "*":
+                    result = first_number * second_number;
+                    break;
+                case "/":
+                    result = first_number / second_number;
+                    break;
+                default:
+                    display.value = "ERROR"
+                    break;
+            }
+
+            updateHistory(display.value, result);
+            display.value = result;
+        }
+
+        function updateHistory(display, result) {
+            const elem = `<div>${display} = ${result}</div>`
+            history_list.push(elem);
+            if (history_list.length > 10) {
+                history_list.shift();
+            }
+            history.innerHTML = history_list.join('');
+
+        }
+    </script>
+</body>
+
+</html>

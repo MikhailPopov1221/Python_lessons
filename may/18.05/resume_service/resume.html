@@ -1,0 +1,213 @@
+
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Моё Резюме</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+            
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Roboto', Arial, sans-serif;
+                line-height: 1.6;
+                background-color: #f5f7fa;
+                color: #333;
+                padding: 20px;
+            }
+            
+            .container {
+                max-width: 850px;
+                margin: 0 auto;
+                background-color: #fff;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            
+            header {
+                background: linear-gradient(135deg, #3a7bd5, #3a6073);
+                color: white;
+                padding: 30px;
+                text-align: center;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+                font-weight: 700;
+            }
+            
+            header p {
+                margin-bottom: 8px;
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-top: 15px;
+            }
+            
+            .contact-info p {
+                margin: 0 15px;
+                display: flex;
+                align-items: center;
+            }
+            
+            .contact-info i {
+                margin-right: 5px;
+            }
+            
+            .content {
+                padding: 30px;
+            }
+            
+            .section {
+                margin-bottom: 30px;
+            }
+            
+            h2 {
+                color: #3a7bd5;
+                border-bottom: 2px solid #3a7bd5;
+                padding-bottom: 10px;
+                margin-bottom: 20px;
+                font-weight: 500;
+            }
+            
+            .item {
+                margin-bottom: 25px;
+                position: relative;
+                padding-left: 20px;
+            }
+            
+            .item:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 8px;
+                height: calc(100% - 8px);
+                width: 2px;
+                background-color: #3a7bd5;
+            }
+            
+            .item:last-child {
+                margin-bottom: 0;
+            }
+            
+            .item:last-child:before {
+                height: 15px;
+            }
+            
+            .item h3 {
+                color: #2c3e50;
+                font-weight: 500;
+                margin-bottom: 5px;
+            }
+            
+            .date {
+                color: #7f8c8d;
+                font-size: 0.9rem;
+                margin-bottom: 8px;
+            }
+            
+            .skills {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .skill {
+                background: linear-gradient(135deg, #3a7bd5, #3a6073);
+                color: white;
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-size: 0.9rem;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s;
+            }
+            
+            .skill:hover {
+                transform: translateY(-2px);
+            }
+            
+            .footer {
+                text-align: center;
+                padding: 20px;
+                background-color: #f9f9f9;
+                color: #7f8c8d;
+                font-size: 0.9rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+    
+            <header>
+                <h1>Михаил Попов</h1>
+                <p>Python Разработчик</p>
+                <div class="contact-info">
+                    <p>@example.com</p>
+                    <p>+7 999 123-45-67</p>
+                    <p>Москва</p>
+                </div>
+            </header>
+        
+        <div class="content">
+    
+            <div class="section">
+                <h2>Образование</h2>
+        
+                <div class="item">
+                    <h3>Московский Университет</h3>
+                    <div class="date"> 2018-2022</div>
+                    <p>Компьютерные науки</p>
+                </div>
+            
+                <div class="item">
+                    <h3>Школа №1</h3>
+                    <div class="date"> 2007-2018</div>
+                    <p>Общее образование</p>
+                </div>
+            
+        </div> 
+        
+            <div class="section">
+                <h2>Опыт работы</h2>
+        
+                <div class="item">
+                    <h3>Tech Solutions</h3>
+                    <h3>Junior Python Developer</h3>
+                    <div class="date"> 2022-по настоящее время</div>
+                    <p>Разработка веб-приложений на Flask, работа с базами данных</p>
+                </div>
+            
+                <div class="item">
+                    <h3>IT Training Center</h3>
+                    <h3>Стажер</h3>
+                    <div class="date"> 2021-2022</div>
+                    <p>Помощь в создании учебных материалов по Python</p>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Навыки</h2>
+                <div class="skills">
+        <div class="skill">Python</div><div class="skill">HTML/CSS</div><div class="skill">Git</div><div class="skill">SQL</div><div class="skill">Flask</div>
+            </div>
+        </div>
+        
+                </div>
+                <div class="footer">
+                    Создано с помощью "Генератор резюме" 2025г.
+                </div>
+            </div>
+        </body>
+    </html>
+    

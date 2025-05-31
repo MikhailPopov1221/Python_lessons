@@ -1,0 +1,6 @@
+numbers = (1, 5, 67, 879, 34, 345, 54, 55, 76, 2, 9, 555, 666, 777)
+new = tuple(map(lambda x: len(str(x)) , numbers))
+print(new)
+print(f"Одна цифра — {new.count(1)}")
+print(f"Две цифры — {new.count(2)}")
+print(f"Три цифры — {new.count(3)}")
