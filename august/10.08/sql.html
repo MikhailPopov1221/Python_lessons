@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Домашнее задание: Работа с базой данных school.db</title>
+  <style>
+    :root{--bg:#f6f8fb;--card:#ffffff;--accent:#0b5fff;--muted:#6b7280;--code:#0f172a}
+    body{font-family:Inter, Roboto, "Helvetica Neue", Arial, sans-serif;background:var(--bg);color:#111;margin:0;padding:32px}
+    .container{max-width:900px;margin:0 auto}
+    h1{font-size:1.6rem;margin-bottom:8px}
+    p.lead{margin:4px 0 16px;color:var(--muted)}
+    .card{background:var(--card);border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);padding:22px;margin-bottom:18px}
+    h2{font-size:1.05rem;margin-bottom:12px}
+    ol,ul{padding-left:18px}
+    .commands{font-weight:700;color:var(--accent);margin-top:6px;margin-bottom:12px}
+    pre{background:#0b1220;color:#e6eef8;padding:14px;border-radius:8px;overflow:auto;font-family:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:0.95rem}
+    @media (max-width:640px){body{padding:16px}.container{padding:0}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Домашнее задание: работа с базой данных <span class="muted">school.db</span></h1>
+    <p class="lead">Цель — научиться добавлять, удалять и выбирать данные из базы SQLite, используя основные SQL-команды.</p>
+
+    <section class="card">
+      <h2>1. Добавление данных</h2>
+      <ol>
+        <li>Добавьте в таблицу <code>teachers</code> преподавателя <strong>Андрей Кузьмин</strong> (кафедра — Физика).</li>
+        <li>Добавьте в таблицу <code>courses</code> курс <strong>Основы физики</strong>, ведущий — Андрей Кузьмин.</li>
+        <li>Добавьте студента <strong>Наталья Сергеева</strong>, возраст 17.</li>
+        <li>Запишите Наталью на курс <strong>Основы физики</strong> (таблица <code>student_course</code>).</li>
+      </ol>
+      <p class="commands">Команда для работы с добавлением: <code>INSERT</code></p>
+    </section>
+
+    <section class="card">
+      <h2>2. Удаление данных</h2>
+      <ol>
+        <li>Удалите из таблицы <code>students</code> студента <strong>Дмитрий Орлов</strong>.</li>
+        <li>Удалите из таблицы <code>student_course</code> все записи с курсом <strong>История Древнего мира</strong>.</li>
+      </ol>
+      <p class="commands">Команда для удаления: <code>DELETE</code></p>
+    </section>
+
+  </div>
+</body>
+</html>
