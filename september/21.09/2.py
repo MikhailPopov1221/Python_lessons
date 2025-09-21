@@ -24,6 +24,23 @@ while True:
         time.sleep(1)
     except Exception:
         break
+data = []
+for quote in driver.find_elements(By.CSS_SELECTOR, ".quote"):
+    text = quote.find_element(By.CSS_SELECTOR, ".text").text
+    author = quote.find_element(By.CSS_SELECTOR, ".author").text
+    tags = ', '.join([t.text for t in quote.find_elements(By.CSS_SELECTOR, ".tag")])
+    data.append((text, author, tags))
+    
+    
+    # link = quote.find_element(By.CSS_SELECTOR, ".text")
+    # link.get_attribute("class")
+
 
 time.sleep(10)    
 driver.quit()
+
+print("___________________________________")
+
+for elem in data:
+    print(*elem, sep="\n")
+    print()
